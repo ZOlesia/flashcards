@@ -1,0 +1,44 @@
+@model flashcards.ViewModels.CardViewModel
+
+<form asp-controller="Card" asp-action="NewCard" method="post">
+    <label asp-for="Question"></label>
+    <br>
+    <input asp-for="Question">
+    <br>
+    <span asp-validation-for="Question" class="text-danger"></span>
+
+    <br>
+    <label asp-for="Answer"></label>
+    <br>
+    <input asp-for="Answer">
+    <br>
+    <span asp-validation-for="Answer" class="text-danger"></span>
+
+    <br>
+    <label asp-for="CategoryId"></label>
+    <br>
+    <select asp-for="CategoryId">
+
+        @foreach (Category category in @ViewBag.allCategories)
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </select>
+
+    <button class="btn btn-success">Add</button>
+</form>
+
+
+<div style="margin-top: 100px;">
+    <table class="table table-striped text-center">
+        @foreach (Card card in @ViewBag.allCards)
+        {
+            <tr>
+                <td>@card.Question</td>
+                <td>@card.Answer</td>
+                <td>@card.Category.Name</td>
+                <td><a href="/card/delete/@card.CardId" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </table>
+</div>

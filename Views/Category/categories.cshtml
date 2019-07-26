@@ -1,0 +1,25 @@
+@model flashcards.ViewModels.CategoryViewModel
+
+<form asp-controller="Category" asp-action="NewCategory" method="Post">
+    <label asp-for="Name"></label>
+    <br>
+    <input asp-for="Name">
+    <br>
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <span class="text-danger">@TempData["error"]</span>
+    <br>
+    <button class="btn btn-success">Add</button>
+</form>
+
+
+<div style="margin-top: 100px;">
+    <table class="table table-striped text-center">
+        @foreach (Category item in @ViewBag.allCategories)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td><a href="/category/delete/@item.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </table>
+</div>

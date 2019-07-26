@@ -1,0 +1,20 @@
+<h1>Welcome Home @ViewBag.user.Email</h1>
+<a href="/practicing" class="btn btn-success">Practice</a>
+
+<a href="/categories" class="btn btn-primary">Category</a>
+<a class="btn btn-primary" href="/cards">Card</a>
+
+<br>
+
+<div style="margin-top:25px;">
+    @foreach (Category item in @ViewBag.user.MyCategories)
+    {
+        <input type="hidden" value="@item.Id" name="typeId">
+        <a class="btn btn-outline-info">@item.Name</a>
+    }
+</div>
+
+
+
+
+

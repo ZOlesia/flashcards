@@ -1,0 +1,39 @@
+﻿@model flashcards.ViewModels.RegisterViewModel
+
+
+<h1>Sign up Form</h1>
+<form asp-controller="Home" asp-action="Register" method="POST">
+    <br>
+    <label asp-for="Email"></label>
+    <input asp-for="Email" type="email"/>
+    <br>
+    <span asp-validation-for="Email" class="text-danger"> </span>
+    <span class="text-danger">@TempData["error"]</span>
+    <br>
+    <label asp-for="Password"></label>
+    <input asp-for="Password"/>
+    <br>
+    <span asp-validation-for="Password" class="text-danger"> </span>
+    <br>
+    <label asp-for="password_confirmation"></label>
+    <input asp-for="password_confirmation"/>
+    <br>
+    <span asp-validation-for="password_confirmation" class="text-danger"> </span>
+    <br>
+    <button type="submit">Register</button>
+</form>
+
+
+<h1>LogIn Form</h1>
+<form action="/login" method="POST">
+    <br>
+    Email <input type="string" name="email">
+    <br>
+    <span class="text-danger">@TempData["login_error"]</span>
+    <br>
+    Password <input type="password" name="password">
+    <br>
+    <span class="text-danger">@TempData["psw_error"]</span>
+    <br>
+    <input type="submit" value="Login">
+</form>

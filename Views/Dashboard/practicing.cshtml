@@ -1,0 +1,8 @@
+<div>
+    @foreach (Category c in @ViewBag.Categories)
+    {
+        <input type="hidden" value="@c.Id" name="typeId">
+        <a class="btn btn-outline-info">@c.Name</a>
+    }
+    <a class="btn btn-outline-info">All</a>
+</div>
